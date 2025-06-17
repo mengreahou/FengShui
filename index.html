@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>កម្មវិធីវិភាគហុងស៊ុយវិទ្យាសាស្រ្ត AI</title>
+    <!-- Open Graph Meta Tags for Link Previews -->
+    <meta property="og:title" content="កម្មវិធីវិភាគហុងស៊ុយវិទ្យាសាស្រ្ត AI" />
+    <meta property="og:description" content="វិភាគហុងស៊ុយតាមរូបភាព និងមើលរាសីប្រចាំថ្ងៃ ខែ ឆ្នាំ ដោយប្រើ AI កំរិតខ្ពស់" />
+    <meta property="og:image" content="https://mengreahou.github.io/FengShui/RMFS-01.jpg" /> <!-- Use your actual logo image URL here -->
+    <meta property="og:url" content="https://mengreahou.github.io/FengShui/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="កម្មវិធីហុងស៊ុយវិទ្យាសាស្រ្ត AI" />
+    <!-- End Open Graph Meta Tags -->
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN for icons -->
@@ -39,7 +48,7 @@
 
         /* Custom background style - URL encoded for better compatibility */
         .custom-background {
-            background-image: url('—Pngtree—kbach khmer patter gold_1858202.png');
+            background-image: url('%E2%80%94Pngtree%E2%80%94kbach%20khmer%20patter%20gold_1858202.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -302,21 +311,21 @@
                         <div className="flex justify-center mb-8">
                             {/* Updated image link to RMFS-01.jpg */}
                             <img
-                                src="RMFS-01.png"
+                                src="RMFS-01.jpg"
                                 alt="Company Logo"
-                                className="h-60 w-auto"
+                                className="h-70 w-auto"
                                 onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/96x96/8B5CF6/FFFFFF?text=Logo+Error"; console.error('Error loading logo image:', e); }} /* Fallback for image load error and console log */
                                 onLoad={() => console.log('Logo image loaded successfully.')} /* Log on successful load */
                             />
                         </div>
                         <h1 className="text-4xl md:text-5xl font-extrabold text-center text-purple-800 mb-8 drop-shadow-md">
-                            <i className="fas fa-yin-yang mr-3"></i>កម្មវិធីវិភាគ ហុងស៊ុយ វិទ្យាសាស្រ្ត ដោយ AI
+                            <i className="fas fa-yin-yang mr-3"></i>កម្មវិធីវិភាគ ហុងស៊ុយ វិទ្យាសាស្រ្ត 
                         </h1>
 
                         {/* Main Content Box (Image Analysis) */}
                         <div className="bg-gradient-to-br from-purple-50 to-indigo-100 p-6 rounded-2xl shadow-inner border border-purple-200 mb-6">
                             <h2 className="2xl md:text-3xl font-bold text-indigo-800 mb-4 flex items-center justify-center">
-                                <i className="fas fa-camera-retro mr-3"></i>វិភាគហុងស៊ុយតាមរូបភាព ដោយកម្មវិធីកំរិតខ្ពស AI
+                                <i className="fas fa-camera-retro mr-3"></i>វិភាគហុងស៊ុយតាមរូបភាព 
                             </h2>
 
                             <div className="mb-6">

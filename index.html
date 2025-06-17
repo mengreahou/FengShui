@@ -37,9 +37,9 @@
         /* Ensure responsive image handling within prose */
         .prose img { max-width: 100%; height: auto; border-radius: 0.5rem; }
 
-        /* Custom background style */
+        /* Custom background style - URL encoded for better compatibility */
         .custom-background {
-            background-image: url('—Pngtree—kbach khmer patter gold_1858202.jpg');
+            background-image: url('%E2%80%94Pngtree%E2%80%94kbach%20khmer%20patter%20gold_1858202.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -111,7 +111,7 @@
                         contents: [{ role: "user", parts: [{ text: horoscopePrompt }] }],
                     };
 
-                    const apiKey = ""; // <<< សូមបញ្ចូល API Key ពិតប្រាកដរបស់អ្នកនៅទីនេះ!!!
+                    const apiKey = "AIzaSyCLWZT5vXil0CoLOCS_sfo7jfGHBjdywEo"; // <<< សូមបញ្ចូល API Key ពិតប្រាកដរបស់អ្នកនៅទីនេះ!!!
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
@@ -263,7 +263,7 @@
 
                     const payload = { contents };
 
-                    const apiKey = ""; // <<< សូមបញ្ចូល API Key ពិតប្រាកដរបស់អ្នកនៅទីនេះ!!!
+                    const apiKey = "AIzaSyCLWZT5vXil0CoLOCS_sfo7jfGHBjdywEo"; // <<< សូមបញ្ចូល API Key ពិតប្រាកដរបស់អ្នកនៅទីនេះ!!!
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
@@ -283,15 +283,15 @@
                         result.candidates?.[0].content?.parts?.length > 0) {
                         const text = result.candidates?.[0].content.parts?.[0].text;
                         const cleanedHtml = DOMPurify.sanitize(marked.parse(text));
-                        setImageInfo(cleanedHtml);
+                        setHoroscopeInfo(cleanedHtml);
                     } else {
-                        setError('មិនអាចទទួលបានព័ត៌មានរាសីទេ។ សូមព្យាយាមម្តងទៀត។');
+                        setHoroscopeError('មិនអាចទទួលបានព័ត៌មានរាសីទេ។ សូមព្យាយាមម្តងទៀត។');
                     }
                 } catch (err) {
-                    console.error('Error analyzing images for Feng Shui:', err);
-                    setError(`មានបញ្ហាក្នុងការវិភាគហុងស៊ុយរូបភាព៖ ${err.message}`);
+                    console.error('Error fetching horoscope:', err);
+                    setHoroscopeError(`មានបញ្ហាក្នុងការទស្សន៍ទាយរាសី៖ ${err.message}`);
                 } finally {
-                    setIsLoading(false);
+                    setIsHoroscopeLoading(false);
                 }
             };
 
@@ -305,7 +305,8 @@
                                 src="RMFS-01.jpg"
                                 alt="Company Logo"
                                 className="h-24 w-auto"
-                                onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/96x96/8B5CF6/FFFFFF?text=Logo+Error"; }} /* Fallback for image load error */
+                                onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/96x96/8B5CF6/FFFFFF?text=Logo+Error"; console.error('Error loading logo image:', e); }} /* Fallback for image load error and console log */
+                                onLoad={() => console.log('Logo image loaded successfully.')} /* Log on successful load */
                             />
                         </div>
                         <h1 className="text-4xl md:text-5xl font-extrabold text-center text-purple-800 mb-8 drop-shadow-md">
